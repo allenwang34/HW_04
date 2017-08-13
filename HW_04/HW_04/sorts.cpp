@@ -194,11 +194,12 @@ void insertion_sort(vector<Sensor>& s, bool comp(const Sensor&, const Sensor&))
 		//swap(s[0], s[1]);
 	int n = s.size();
 	int i, j;
-	for (i = 2; i < n; i++) {
+	
+	for (i = 1; i < n; i++) {
 		Sensor v = s[i];
 		j = i;
-		while (j>=1 && !comp(s[j-1],v)) {
-			s[j - 1]=s[j];
+		while (j>=1 && comp(v,s[j-1])) {
+			s[j]=s[j-1];
 			j--;
 		}
 		s[j] = v;
